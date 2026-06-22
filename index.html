@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Minimarket Tienda María José | Tu tienda de confianza en El Santuario</title>
+    <meta name="description" content="Visita Minimarket Tienda María José en El Santuario, Antioquia. Encuentra gran variedad de productos, alimentos frescos y atención de calidad todos los días.">
+    <meta name="keywords" content="minimarket el santuario, tienda maria jose, abarrotes, víveres, supermercado el santuario, compras diarias">
+    <meta name="author" content="Fredy Alexis Zuluaga Zuluaga">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Minimarket Tienda María José">
+    <meta property="og:description" content="Tu minimarket de confianza en El Santuario. Abierto todos los días.">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #4CAF50;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F1F8E9;
+            --white: #FFFFFF;
+        }
+
+        /* Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Utilidades */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #1B5E20;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Beneficios */
+        .benefits {
+            padding: 60px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Propuesta de Valor / Servicios */
+        .services {
+            background-color: var(--bg-light);
+            padding: 60px 0;
+        }
+
+        .services-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            list-style: none;
+            margin-top: 30px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .services-list li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .services-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Prueba Social (Honesta y comunitaria) */
+        .social-proof {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .trust-banner {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        /* Formulario de Contacto y Datos */
+        .contact-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        #form-message {
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: underline;
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none; /* Para simplicidad en landing móvil, mantenemos solo el CTA o Logo */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">Tienda María José</a>
+            <div class="nav-links">
+                <a href="#beneficios">Beneficios</a>
+                <a href="#servicios">Qué Ofrecemos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Tu Minimarket de Confianza en El Santuario</h1>
+                <p>Encuentra todos los productos que necesitas para tu hogar. Frescura, variedad y la mejor atención comunitaria, disponibles todos los días de la semana.</p>
+                <a href="#contacto" class="btn">Haz tu pedido o consulta hoy</a>
+            </div>
+        </section>
+
+        <section id="beneficios" class="benefits container">
+            <h2 class="section-title">¿Por qué elegirnos?</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Variedad Garantizada</h3>
+                    <p>Contamos con un amplio surtido de abarrotes, productos de aseo, snacks y artículos de primera necesidad para tu hogar.</p>
+                </div>
+                <div class="card">
+                    <h3>Atención Constante</h3>
+                    <p>Estamos abiertos todos los días de la semana, de 8:00 am a 5:00 pm, para estar ahí cuando más lo necesitas.</p>
+                </div>
+                <div class="card">
+                    <h3>Cercanía y Confianza</h3>
+                    <p>Atención personalizada por parte de Fredy Alexis Zuluaga. Somos parte de la comunidad de El Santuario.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="services">
+            <div class="container services-content">
+                <h2 class="section-title">Todo lo que necesitas en un solo lugar</h2>
+                <p>Minimarket Tienda María José es más que una tienda, es tu despensa local. Nos aseguramos de mantener nuestro inventario actualizado para que nunca te falte nada.</p>
+                <ul class="services-list">
+                    <li>Alimentos no perecederos y abarrotes.</li>
+                    <li>Productos de limpieza y aseo personal.</li>
+                    <li>Bebidas refrescantes y snacks.</li>
+                    <li>Atención ágil para que tus compras sean rápidas y seguras.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="social-proof container">
+            <div class="trust-banner">
+                <h2>El comercio amigo de El Santuario, Antioquia</h2>
+                <p>Nos enorgullece servir a nuestros vecinos en la Cra. 41 # 51-17, brindando productos de calidad con la honestidad y transparencia que nuestra comunidad merece.</p>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contáctanos</h2>
+                <div class="contact-wrapper">
+                    
+                    <div class="contact-info">
+                        <h3>Información del Negocio</h3>
+                        <p><strong>Titular:</strong> Fredy Alexis Zuluaga Zuluaga</p>
+                        <p><strong>Dirección física:</strong> Cra. 41 # 51-17, El Santuario, Antioquia, Colombia</p>
+                        <p><strong>Horario de atención:</strong> Todos los días de 8:00 am a 5:00 pm</p>
+                        <p><strong>Teléfono:</strong> 313 456 7654</p>
+                        <p><strong>Correo electrónico:</strong> ldeanseaton@gmail.com</p>
+                    </div>
+
+                    <div class="contact-form">
+                        <form id="leadForm">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono / WhatsApp</label>
+                                <input type="tel" id="telefono" name="telefono" required placeholder="Tu número de contacto">
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">¿Qué productos buscas o qué consulta tienes?</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                            </div>
+                            <button type="submit" class="btn">Enviar Consulta</button>
+                            <p id="form-message">¡Gracias por tu mensaje! Nos pondremos en contacto contigo muy pronto.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Minimarket Tienda María José. Administrado por Fredy Alexis Zuluaga Zuluaga.</p>
+            <div class="footer-links">
+                <a href="politica-de-privacidad.html">Política de Privacidad</a>
+                <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
+            </div>
+            <p style="font-size: 0.8rem; color: #aaa;">Esta página web tiene fines informativos y comerciales locales. No se realizan transacciones en línea de manera directa en este sitio.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Establecer año actual
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Manejo del formulario de contacto
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita recarga de la página
+            
+            // Aquí iría la lógica para enviar los datos a un servidor o webhook.
+            // Para cumplir con una navegación limpia, mostramos un mensaje de éxito.
+            document.getElementById('form-message').style.display = 'block';
+            
+            // Limpiar formulario
+            this.reset();
+            
+            // Ocultar el mensaje después de 5 segundos
+            setTimeout(() => {
+                document.getElementById('form-message').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
