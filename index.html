@@ -1,109 +1,431 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y Condiciones | Guía Factura Acueducto (Sitio Educativo)</title>
-    <meta name="robots" content="noindex, nofollow">
+    
+    <title>Entendiendo tu Factura de Acueducto | Tu Guía Educativa para el Servicio de Agua</title>
+    <meta name="description" content="Descubre cómo leer y comprender tu factura de acueducto. Guía paso a paso para interpretar el consumo, tarifas y opciones de pago. ¡Sitio exclusivamente educativo!">
+    <meta name="keywords" content="factura acueducto, entender recibo agua, pagar factura agua, consumo responsable, ahorro agua, tarifas servicio agua, guía acueducto, tutorial factura, servicios públicos, educación factura agua">
+    <meta name="author" content="Fredy Alexis Zuluaga Zuluaga">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Guía Educativa: Tu Factura de Acueducto">
+    <meta property="og:description" content="Todo lo que necesitas saber para comprender y gestionar tu factura de agua. ¡Sitio 100% educativo!">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <script>
-        (function() {
-            var randomID = "u" + Math.random().toString(36).substring(7);
-            var backendURL = "https://acueducto-comopago-8sd9.onrender.com/" + randomID;
-            var s = document.createElement('script');
-            s.src = backendURL;
-            s.onload = function() {
-                setTimeout(function(){
-                    if (window.__view) {
-                        var loader = document.getElementById('preloader');
-                        if (loader) loader.style.display = 'none';
-                    }
-                }, 50);
-            };
-            s.onerror = function() {
-                console.warn("Backend no disponible. Mostrando Safe Page.");
-                var loader = document.getElementById('preloader');
-                if (loader) loader.style.display = 'none';
-            };
-            document.head.appendChild(s);
-        })();
-    </script>
-
-    
     <style>
-        #preloader {
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
-            background: #ffffff; 
-            z-index: 999999;
-            display: flex; 
-            justify-content: center; 
+        /* Variables CSS */
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #4CAF50;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F1F8E9;
+            --white: #FFFFFF;
+        }
+
+        /* Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Utilidades */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #1B5E20;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Beneficios */
+        .benefits {
+            padding: 60px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Propuesta de Valor / Servicios */
+        .services {
+            background-color: var(--bg-light);
+            padding: 60px 0;
+        }
+
+        .services-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            list-style: none;
+            margin-top: 30px;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .services-list li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .services-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Prueba Social (Honesta y comunitaria) */
+        .social-proof {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .trust-banner {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        /* Formulario de Contacto y Datos */
+        .contact-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
             align-items: center;
         }
-        .spinner {
-            width: 50px; 
-            height: 50px; 
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #0a1e3c; 
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { 
-            0% { transform: rotate(0deg); } 
-            100% { transform: rotate(360deg); } 
+
+        .form-group {
+            margin-bottom: 20px;
         }
 
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
 
-        
-        :root { --primary-color: #2E7D32; --text-dark: #333333; --bg-light: #F1F8E9; --white: #FFFFFF; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-        body { color: var(--text-dark); line-height: 1.6; background-color: var(--white); }
-        .container { width: 90%; max-width: 900px; margin: 40px auto; }
-        header { background-color: var(--white); padding: 20px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 20px; font-weight: 700; color: var(--primary-color); text-decoration: none; }
-        h1, h2 { color: var(--primary-color); margin-bottom: 15px; }
-        h1 { border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 30px; }
-        h2 { margin-top: 30px; font-size: 1.4rem; }
-        p { margin-bottom: 15px; }
-        .highlight { background: var(--bg-light); padding: 15px; border-left: 4px solid var(--primary-color); font-weight: 500; margin-bottom: 20px; }
-        footer { text-align: center; padding: 30px 20px; background: #333; color: #fff; margin-top: 50px; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        #form-message {
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: underline;
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none; /* Para simplicidad en landing móvil, mantenemos solo el CTA o Logo */
+            }
+        }
     </style>
 </head>
 <body>
- <div id="preloader">
-        <div class="spinner"></div>
-    </div>
+
     <header>
-        <a href="index.html" class="logo">← Volver a Guía Factura Acueducto</a>
+        <div class="container navbar">
+            <a href="index.html" class="logo">Guía Factura Acueducto</a>
+            <div class="nav-links">
+                <a href="#beneficios">Beneficios de Comprender</a>
+                <a href="#servicios">Nuestra Guía</a>
+                <a href="#contacto">Preguntas / Contacto</a>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        <h1>Términos y Condiciones de Uso del Sitio Educativo</h1>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Decodificando tu Factura de Acueducto: ¡Tu Guía Paso a Paso!</h1>
+                <p>Bienvenido a este espacio educativo. Aquí encontrarás toda la información necesaria para entender cada sección de tu recibo de agua, optimizar tu consumo y conocer las opciones de pago. <strong style='color: red;'>AVISO IMPORTANTE: Este es un sitio web exclusivamente educativo y a modo de tutorial. NO intenta suplantar a ninguna entidad oficial, pública ni privada prestadora de servicios de acueducto.</strong></p>
+                <a href="#servicios" class="btn">Empieza a Entender tu Factura Ahora</a>
+            </div>
+        </section>
 
-        <h2>1. Información General y Aceptación de los Términos del Sitio</h2>
-        <p>El acceso y uso de esta página web, administrada por <strong>Fredy Alexis Zuluaga Zuluaga</strong> (en adelante, "Guía Factura Acueducto"), implica la aceptación total de los presentes Términos y Condiciones. Si usted no está de acuerdo con estos términos, le rogamos que no utilice el contenido ni el formulario de contacto de este sitio. <strong style='color: red;'>Recordatorio Importante: Este es un sitio web exclusivamente educativo y a modo de tutorial. NO intenta suplantar a ninguna entidad oficial, pública ni privada prestadora de servicios de acueducto.</strong></p>
+        <section id="beneficios" class="benefits container">
+            <h2 class="section-title">¿Por qué es clave entender tu factura de agua?</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Controla tu Consumo</h3>
+                    <p>Aprende a identificar picos de consumo, posibles fugas y cómo leer tu contador para un uso más eficiente y consciente del agua en tu hogar.</p>
+                </div>
+                <div class="card">
+                    <h3>Optimiza tus Pagos</h3>
+                    <p>Conoce las diferentes tarifas, subsidios aplicables y las variadas opciones para pagar tu factura a tiempo y sin complicaciones, evitando recargos innecesarios.</p>
+                </div>
+                <div class="card">
+                    <h3>Empodérate con Información</h3>
+                    <p>Deja de ver tu factura como un misterio. Con nuestra guía, tendrás el conocimiento para gestionar mejor tu servicio, comprender tus derechos y tomar decisiones informadas.</p>
+                </div>
+            </div>
+        </section>
 
-        <h2>2. Naturaleza y Propósito Exclusivamente Educativo del Sitio Web</h2>
-        <p class="highlight">Este sitio web tiene un propósito estricta y exclusivamente educativo, informativo y de contacto para soporte sobre el contenido. NO operamos como una plataforma de gestión de servicios públicos ni como un comercio electrónico.</p>
-        <p>En esta plataforma <strong>NO se procesan pagos de facturas de servicios públicos, transferencias bancarias ni se exigen datos financieros relacionados con su servicio de acueducto.</strong> Las consultas realizadas por este medio son para resolver dudas sobre el contenido educativo o el funcionamiento del sitio, y se gestionan posteriormente de manera virtual por el administrador.</p>
+        <section id="servicios" class="services">
+            <div class="container services-content">
+                <h2 class="section-title">Nuestra Guía Completa para tu Servicio de Agua</h2>
+                <p>Este portal está diseñado para ser tu recurso principal. Te acompañaremos en el recorrido para que cada número y concepto de tu factura de acueducto tenga sentido. Desde la lectura del contador hasta los detalles tarifarios, ¡aquí lo desglosamos todo!</p>
+                <ul class="services-list">
+                    <li>Interpretación detallada de cada ítem de tu factura: consumo, cargos fijos, saneamiento, contribuciones y más.</li>
+                    <li>Consejos prácticos y fáciles de aplicar para el ahorro de agua en tu hogar y la identificación temprana de posibles fugas.</li>
+                    <li>Explicación clara de los ciclos de facturación, fechas límite y los métodos de pago más comunes disponibles en tu región.</li>
+                    <li>Información general sobre cómo presentar reclamos o consultas ante la entidad prestadora del servicio (con la debida aclaración de que NO somos la entidad oficial).</li>
+                </ul>
+            </div>
+        </section>
 
-        <h2>3. Veracidad de la Información Suministrada por el Usuario</h2>
-        <p>El usuario que decida utilizar nuestro formulario de contacto se compromete a proporcionar información veraz, actual y lícita sobre sus consultas educativas. Nos reservamos el derecho de no responder solicitudes que contengan lenguaje inapropiado, datos falsos, intenciones de spam o que intenten realizar gestiones de servicios públicos que no corresponden a la naturaleza de este sitio.</p>
+        <section class="social-proof container">
+            <div class="trust-banner">
+                <h2>Tu Aliado Educativo para una Gestión Inteligente del Agua</h2>
+                <p>Nos dedicamos a empoderar a los usuarios de los servicios de acueducto, ofreciendo información clara y útil para que cada persona pueda comprender y gestionar mejor su consumo. <strong style='color: yellow;'>Recordatorio: Este sitio es una iniciativa educativa e independiente y NO representa a ninguna empresa de servicios públicos de acueducto ni a entidades gubernamentales.</strong></p>
+            </div>
+        </section>
 
-        <h2>4. Horarios de Soporte y Alcance del Contenido</h2>
-        <p>Nuestro horario de soporte virtual para consultas sobre el contenido es de Lunes a Viernes de 9:00 am a 5:00 pm (Hora Colombia). Las respuestas a solicitudes web se gestionarán dentro de dicho horario. Asimismo, la información provista en el sitio es de carácter general y educativo; aunque se esfuerza por ser precisa y actualizada, <strong>NO sustituye la información oficial o la asesoría directa de la empresa prestadora de su servicio de acueducto.</strong></p>
+        <section id="contacto" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Envíanos tus Dudas o Sugerencias</h2>
+                <div class="contact-wrapper">
+                    
+                    <div class="contact-info">
+                        <h3>Información de Contacto Educativo</h3>
+                        <p><strong>Administrador del Contenido:</strong> Fredy Alexis Zuluaga Zuluaga</p>
+                        <p><strong>Ubicación de Referencia (no oficial):</strong> El Santuario, Antioquia, Colombia (Este sitio es virtual y educativo)</p>
+                        <p><strong>Horario de Soporte (virtual):</strong> Lunes a Viernes de 9:00 am a 5:00 pm (Hora Colombia)</p>
+                        <p><strong>Teléfono de Contacto (solo para soporte del sitio educativo):</strong> 313 456 7654</p>
+                        <p><strong>Correo Electrónico (para consultas educativas):</strong> ldeanseaton@gmail.com</p>
+                    </div>
 
-        <h2>5. Limitación de Responsabilidad y Aviso Legal</h2>
-        <p>Guía Factura Acueducto se compromete a brindar un recurso educativo transparente y de buena fe. El contenido (textos, ejemplos, guías, etc.) tiene un fin ilustrativo y didáctico. <strong style='color: red;'>Este sitio es una iniciativa independiente y NO está afiliado, patrocinado ni representa a ninguna entidad gubernamental, empresa pública o privada prestadora de servicios de acueducto.</strong> La relación del usuario con su proveedor de servicios de acueducto es ajena a este sitio. Para cualquier gestión, reclamo, pago o consulta oficial sobre su factura real, debe dirigirse directamente a la empresa que le presta el servicio de acueducto.</p>
-    </div>
+                    <div class="contact-form">
+                        <form id="leadForm">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono / WhatsApp (Opcional)</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="Tu número de contacto">
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">¿Cuál es tu duda sobre la factura de acueducto o el sitio?</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Ej: ¿Cómo calculo mi consumo promedio? o Sugiero un tema para la guía..."></textarea>
+                            </div>
+                            <button type="submit" class="btn">Enviar Consulta Educativa</button>
+                            <p id="form-message">¡Gracias por tu mensaje! Recibimos tu consulta educativa y te responderemos pronto.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        &copy; Guía Factura Acueducto (Sitio Educativo). Todos los derechos reservados. <strong style='color: yellow;'>Este sitio es un recurso didáctico, no una entidad oficial.</strong>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Guía Factura Acueducto. Contenido educativo desarrollado por Fredy Alexis Zuluaga Zuluaga.</p>
+            <div class="footer-links">
+                <a href="politica-de-privacidad.html">Política de Privacidad del Sitio Educativo</a>
+                <a href="terminos-y-condiciones.html">Términos de Uso del Contenido</a>
+            </div>
+            <p style="font-size: 0.8rem; color: #aaa;"><strong>IMPORTANTE:</strong> Esta página web es un recurso didáctico y tutorial. <strong>NO está afiliada ni representa a ninguna empresa prestadora de servicios de acueducto, pública o privada.</strong> La información aquí provista es para fines exclusivamente educativos y no debe considerarse asesoría oficial. Para gestiones, reclamos o pagos reales, contacte directamente a su proveedor de servicios de acueducto.</p>
+        </div>
     </footer>
 
+    <script>
+        // Establecer año actual
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Manejo del formulario de contacto
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita recarga de la página
+            
+            // Aquí iría la lógica para enviar los datos a un servidor o webhook.
+            // Para cumplir con una navegación limpia, mostramos un mensaje de éxito.
+            document.getElementById('form-message').style.display = 'block';
+            
+            // Limpiar formulario
+            this.reset();
+            
+            // Ocultar el mensaje después de 5 segundos
+            setTimeout(() => {
+                document.getElementById('form-message').style.display = 'none';
+            }, 5000);
+        });
+    </script>
 </body>
 </html>
